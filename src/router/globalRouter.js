@@ -1,14 +1,14 @@
 import express from "express";
-import { join } from "../controller/userController";
-import { tranding } from "../controller/videoController";
+import { join, login } from "../controller/userController";
+import { tranding, search } from "../controller/videoController";
 
 const globalRouter = express.Router();
     //globalRouter는 url을 깔끔하게 정돈하는 정도지 그외의 이유는 없음.
 
-//home
 globalRouter.get("/", tranding);
-//join
 globalRouter.get("/join", join);
+globalRouter.get("/login", login);
+globalRouter.get("/search", search);
 
 
 
