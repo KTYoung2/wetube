@@ -15,6 +15,10 @@ app.use(logger);
 
 
 
+app.set("view engine", "pug");
+//pug 사용
+app.set("views", process.cwd() + "/src/views");
+//현재작업 디렉토리변경 
 app.use("/", globalRouter);
 app.use("/videos", videoRouter);
 app.use("/users", userRouter);
