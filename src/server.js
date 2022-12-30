@@ -10,15 +10,14 @@ import userRouter from "./router/userRouter";
 
 //express function을 사용하면 알아서 application생성됨
 const app = express();
-const logger = morgan("dev"); 
-app.use(logger);
-
-
+const logger = morgan("dev");
 
 app.set("view engine", "pug");
 //pug 사용
 app.set("views", process.cwd() + "/src/views");
 //현재작업 디렉토리변경 
+app.use(logger);
+app.use(express.urlencoded({ extended : true }));
 app.use("/", globalRouter);
 app.use("/videos", videoRouter);
 app.use("/users", userRouter);
